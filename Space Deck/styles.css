@@ -111,13 +111,19 @@ main {
     border: 1px solid rgba(255, 215, 0, 0.3);
 }
 
+/* Card Wrapper */
+.card-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 2rem;
+}
+
 /* Flashcard */
 #flashcard {
     width: 100%;
-    max-width: 400px;
     height: 250px;
     perspective: 1000px;
-    margin-bottom: 2rem;
     cursor: pointer;
     position: relative;
     transform-style: preserve-3d;
@@ -164,20 +170,21 @@ main {
 /* Star Button */
 .star-button {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: -15px;
+    right: -15px;
     background: rgba(255, 215, 0, 0.2);
     border: 2px solid rgba(255, 215, 0, 0.4);
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 10;
+    z-index: 15;
     transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .star-button:hover {
@@ -324,8 +331,11 @@ footer {
         padding: 0.3rem 0.6rem;
     }
 
-    #flashcard {
+    .card-wrapper {
         max-width: 300px;
+    }
+
+    #flashcard {
         height: 200px;
     }
 
@@ -339,10 +349,10 @@ footer {
     }
 
     .star-button {
-        width: 40px;
-        height: 40px;
-        top: 8px;
-        right: 8px;
+        width: 45px;
+        height: 45px;
+        top: -12px;
+        right: -12px;
     }
 
     .star-icon {
@@ -376,8 +386,11 @@ footer {
         font-size: 0.85rem;
     }
 
-    #flashcard {
+    .card-wrapper {
         max-width: 250px;
+    }
+
+    #flashcard {
         height: 180px;
     }
 
@@ -391,10 +404,10 @@ footer {
     }
 
     .star-button {
-        width: 35px;
-        height: 35px;
-        top: 6px;
-        right: 6px;
+        width: 40px;
+        height: 40px;
+        top: -10px;
+        right: -10px;
     }
 
     .star-icon {

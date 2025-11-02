@@ -538,7 +538,7 @@ function showEmptyState(message) {
         </div>
     `;
     backText.innerHTML = frontText.innerHTML;
-    if (starBtn) starBtn.style.display = 'none';
+    if (starBtn) starBtn.style.visibility = 'hidden';
 }
 
 // Display current card
@@ -561,7 +561,7 @@ function displayCard() {
     console.log('Displaying card:', currentIndex, 'Actual index:', actualIndex, 'Front:', card.front, 'Back:', card.back);
     
     // Show star button
-    if (starBtn) starBtn.style.display = 'flex';
+    if (starBtn) starBtn.style.visibility = 'visible';
     
     // Display card content
     frontText.innerHTML = `<p>${card.front}</p>`;
