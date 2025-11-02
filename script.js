@@ -1,5 +1,8 @@
 // script.js - JavaScript functionality for Space Deck flashcard website
 
+console.log('Script loaded, starting initialization');
+
+// Embedded flashcard data
 let flashcards = [
   {
     "front": "Name all planets in order, with one unique feature for each.",
@@ -19,23 +22,23 @@ let flashcards = [
   },
   {
     "front": "What spacecraft first visited Pluto, and when?",
-    "back": "NASA’s New Horizons flew by Pluto on July 14, 2015.​"
+    "back": "NASA's New Horizons flew by Pluto on July 14, 2015.​"
   },
   {
     "front": "Draw and label: LEO, MEO, GEO, HEO, SSO, Molniya.",
     "back": "LEO: ~200–2,000 km; MEO: ~2,000–35,786 km (e.g., GPS ~20,200 km); GEO: 35,786 km equatorial; HEO: highly elliptical orbits; SSO: near‑polar with constant local solar time; Molniya: highly elliptical, 63.4° inclination, ~12‑hour period.​"
   },
   {
-    "front": "What determines a satellite’s orbital period? Apply Kepler’s third law.",
+    "front": "What determines a satellite's orbital period? Apply Kepler's third law.",
     "back": "Period depends on the semi‑major axis and central body mass: \nT\n2\n=\n4\nπ\n2\na\n3\nG\nM\nT \n2\n = \nGM\n4π \n2\n a \n3\n .​"
   },
   {
     "front": "What is the difference between true anomaly and mean anomaly?",
-    "back": "True anomaly is the actual angle from periapsis to the spacecraft’s position; mean anomaly parameterizes time since periapsis assuming uniform angular motion.​"
+    "back": "True anomaly is the actual angle from periapsis to the spacecraft's position; mean anomaly parameterizes time since periapsis assuming uniform angular motion.​"
   },
   {
     "front": "What causes orbital precession? Provide one real-world example.",
-    "back": "Non‑spherical gravity (Earth’s J2 oblateness), third‑body tugs, and drag cause node/apsidal precession; SSO exploits J2 to keep a consistent local solar time.​"
+    "back": "Non‑spherical gravity (Earth's J2 oblateness), third‑body tugs, and drag cause node/apsidal precession; SSO exploits J2 to keep a consistent local solar time.​"
   },
   {
     "front": "Problem: Calculate the delta‑v for a Hohmann transfer from a 300 km circular orbit to GEO.",
@@ -46,19 +49,19 @@ let flashcards = [
     "back": "1957; it transmitted simple radio beeps that were tracked worldwide.​"
   },
   {
-    "front": "Name the world’s first space station and the country that built it.",
+    "front": "Name the world's first space station and the country that built it.",
     "back": "Salyut 1 by the Soviet Union (launched 1971).​"
   },
   {
     "front": "What was the primary discovery of the Pioneer Venus mission?",
-    "back": "Characterized Venus’s thick atmosphere and sulfuric acid cloud structure using probes and an orbiter.​"
+    "back": "Characterized Venus's thick atmosphere and sulfuric acid cloud structure using probes and an orbiter.​"
   },
   {
     "front": "Which Mars rover confirmed evidence of past water, and in what form?",
-    "back": "Opportunity found hematite “blueberries” and sedimentary features indicating past liquid water.​"
+    "back": "Opportunity found hematite \"blueberries\" and sedimentary features indicating past liquid water.​"
   },
   {
-    "front": "Which mission took the first “Earthrise” photo?",
+    "front": "Which mission took the first \"Earthrise\" photo?",
     "back": "Apollo 8 in 1968 during lunar orbit.​"
   },
   {
@@ -66,7 +69,7 @@ let flashcards = [
     "back": "Sun‑synchronous ~705 km for consistent lighting in repeat Earth imaging.​"
   },
   {
-    "front": "What is unique about the Iridium constellation’s architecture?",
+    "front": "What is unique about the Iridium constellation's architecture?",
     "back": "66 active satellites in near‑polar LEO with inter‑satellite crosslinks for global coverage.​"
   },
   {
@@ -82,16 +85,16 @@ let flashcards = [
     "back": "Sentinel‑1, RADARSAT series, and others provide all‑weather day/night imaging.​"
   },
   {
-    "front": "What is the resolution of Hubble’s main camera?",
+    "front": "What is the resolution of Hubble's main camera?",
     "back": "About 0.05 arcseconds with instruments like WFC3/ACS enabling fine spatial detail.​"
   },
   {
-    "front": "What does a redshift in a distant galaxy’s spectrum indicate?",
+    "front": "What does a redshift in a distant galaxy's spectrum indicate?",
     "back": "Recession due to cosmic expansion and/or Doppler motion away from the observer.​"
   },
   {
     "front": "What is a barycenter and where is the Sun–Jupiter barycenter located?",
-    "back": "The system’s center of mass; for Sun–Jupiter it lies just outside or near the Sun’s center, offset within or near the solar radius depending on definition.​"
+    "back": "The system's center of mass; for Sun–Jupiter it lies just outside or near the Sun's center, offset within or near the solar radius depending on definition.​"
   },
   {
     "front": "What is gravitational lensing and what mission uses it?",
@@ -114,8 +117,8 @@ let flashcards = [
     "back": "Continuous thrust applies small acceleration over long durations; staged/impulsive burns apply short, high‑thrust maneuvers at specific orbital points.​"
   },
   {
-    "front": "Calculate escape velocity from Earth’s surface.",
-    "back": "About 11.2 km/s from Earth’s surface using \nv\ne\n=\n2\nG\nM\n/\nR\nv \ne\n = \n2GM/R\n .​"
+    "front": "Calculate escape velocity from Earth's surface.",
+    "back": "About 11.2 km/s from Earth's surface using \nv\ne\n=\n2\nG\nM\n/\nR\nv \ne\n = \n2GM/R\n .​"
   },
   {
     "front": "Explain why gravity assists save fuel and how they work.",
@@ -130,16 +133,16 @@ let flashcards = [
     "back": "Power (insufficient generation/charging), communication issues, deployment anomalies, and attitude control failures.​"
   },
   {
-    "front": "What does “loss of signal” mean for spacecraft ops?",
+    "front": "What does \"loss of signal\" mean for spacecraft ops?",
     "back": "A planned or unplanned communications gap when a spacecraft is not in contact with ground stations.​"
   },
   {
-    "front": "What are the functions of NASA’s DSN?",
+    "front": "What are the functions of NASA's DSN?",
     "back": "Tracking, telemetry, command, and radio science for deep‑space missions via global dish networks.​"
   },
   {
     "front": "How are old satellites decommissioned? What is a graveyard orbit?",
-    "back": "LEO craft deorbit and burn up; GEO craft are boosted ~300 km above GEO into a disposal “graveyard” orbit.​"
+    "back": "LEO craft deorbit and burn up; GEO craft are boosted ~300 km above GEO into a disposal \"graveyard\" orbit.​"
   },
   {
     "front": "What causes signal latency between Earth and Mars?",
@@ -182,20 +185,20 @@ let flashcards = [
     "back": "Under the Rescue Agreement, states assist astronauts in distress; broader SAR for distress beacons is coordinated by COSPAS‑SARSAT internationally.​"
   },
   {
-    "front": "Name the main asteroid belt’s location and two largest members.",
+    "front": "Name the main asteroid belt's location and two largest members.",
     "back": "Between Mars and Jupiter; Ceres and Vesta are among the largest bodies.​"
   },
   {
     "front": "What is the transit method in exoplanet discovery?",
-    "back": "Detecting periodic dips in a star’s brightness as a planet crosses its disk.​"
+    "back": "Detecting periodic dips in a star's brightness as a planet crosses its disk.​"
   },
   {
     "front": "What is the main goal of the DART mission?",
-    "back": "To test kinetic impactor deflection by altering an asteroid moonlet’s orbit.​"
+    "back": "To test kinetic impactor deflection by altering an asteroid moonlet's orbit.​"
   },
   {
     "front": "Define habitable zone in extrasolar systems.",
-    "back": "The orbital region where liquid water could exist on a planet’s surface given sufficient atmospheric conditions.​"
+    "back": "The orbital region where liquid water could exist on a planet's surface given sufficient atmospheric conditions.​"
   },
   {
     "front": "Who discovered the first extrasolar planet?",
@@ -435,58 +438,110 @@ let flashcards = [
   },
   {
     "front": "What is a ballistic trajectory?",
-    "back": "Unpowered path followed by a spacecraft after a burn under gravity alone"
+    "back": "Unpowered path followed by a spacecraft under gravity alone after a burn"
   },
   {
     "front": "What does 'capture orbit' mean?",
     "back": "Orbit spacecraft enters after deceleration burn at a destination planet or moon"
   }
 ];
+
 let currentIndex = 0;
 let isFlipped = false;
 
+console.log('Getting DOM elements');
 const flashcard = document.getElementById('flashcard');
-const frontText = document.getElementById('front-text');
-const backText = document.getElementById('back-text');
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 const shuffleBtn = document.getElementById('shuffle-btn');
+const cardCounter = document.getElementById('card-counter');
 
-// Load flashcards statically (embedded in script)
-function loadFlashcards() {
-    console.log('Loading flashcards statically:', flashcards.length, 'cards');
+const frontText = document.getElementById('frontText');
+const backText = document.getElementById('backText');
+console.log('DOM elements retrieved:', {flashcard, prevBtn, nextBtn, shuffleBtn, frontText, backText, cardCounter});
+
+// Initialize flashcards
+function initializeFlashcards() {
+    console.log('Initializing flashcards, count:', flashcards.length, 'cards');
     if (flashcards.length === 0) {
-        frontText.textContent = 'No flashcards available.';
-        backText.textContent = 'No flashcards available.';
+        console.log('No flashcards found, disabling buttons');
+        document.getElementById('frontText').textContent = 'No flashcards available.';
+        document.getElementById('backText').textContent = 'No flashcards available.';
         disableButtons();
         return;
     }
+    console.log('Flashcards loaded successfully, displaying first card');
     displayCard();
 }
 
 // Display current card
 function displayCard() {
-    if (flashcards.length === 0) return;
+    console.log('displayCard called, currentIndex:', currentIndex, 'flashcards.length:', flashcards.length);
+    if (flashcards.length === 0) {
+        console.log('No flashcards to display');
+        return;
+    }
     const card = flashcards[currentIndex];
-    frontText.textContent = card.front;
-    backText.textContent = card.back;
+    console.log('Displaying card:', currentIndex, 'Front:', card.front, 'Back:', card.back);
+    console.log('frontText element:', frontText);
+    console.log('backText element:', backText);
+    frontText.innerHTML = `<p>${card.front}</p>`;
+    backText.innerHTML = `<p>${card.back}</p>`;
+    console.log('Card content set, resetting flip state');
     // Reset flip state
     isFlipped = false;
     flashcard.classList.remove('flipped');
+    console.log('Card displayed successfully');
+
+    // Update card counter
+    updateCardCounter();
 }
 
-// Flip card on click
+// Update card counter display
+function updateCardCounter() {
+    if (cardCounter && flashcards.length > 0) {
+        cardCounter.textContent = `Card ${currentIndex + 1} of ${flashcards.length}`;
+        console.log('Card counter updated:', cardCounter.textContent);
+    }
+}
+
+// Flip card on click with AnimeJS animation
 flashcard.addEventListener('click', () => {
-    isFlipped = !isFlipped;
+    console.log('Flashcard clicked, isFlipped:', isFlipped);
     if (isFlipped) {
-        flashcard.classList.add('flipped');
+        // Flip back to front
+        console.log('Flipping back to front');
+        anime({
+            targets: flashcard,
+            rotateY: 0,
+            duration: 600,
+            easing: 'easeInOutQuad',
+            complete: () => {
+                console.log('Flip back animation complete');
+                isFlipped = false;
+                flashcard.classList.remove('flipped');
+            }
+        });
     } else {
-        flashcard.classList.remove('flipped');
+        // Flip to back
+        console.log('Flipping to back');
+        anime({
+            targets: flashcard,
+            rotateY: 180,
+            duration: 600,
+            easing: 'easeInOutQuad',
+            complete: () => {
+                console.log('Flip to back animation complete');
+                isFlipped = true;
+                flashcard.classList.add('flipped');
+            }
+        });
     }
 });
 
 // Previous button
 prevBtn.addEventListener('click', () => {
+    console.log('Previous button clicked');
     if (flashcards.length === 0) return;
     currentIndex = (currentIndex - 1 + flashcards.length) % flashcards.length;
     displayCard();
@@ -494,6 +549,7 @@ prevBtn.addEventListener('click', () => {
 
 // Next button
 nextBtn.addEventListener('click', () => {
+    console.log('Next button clicked');
     if (flashcards.length === 0) return;
     currentIndex = (currentIndex + 1) % flashcards.length;
     displayCard();
@@ -501,6 +557,7 @@ nextBtn.addEventListener('click', () => {
 
 // Shuffle button
 shuffleBtn.addEventListener('click', () => {
+    console.log('Shuffle button clicked');
     if (flashcards.length === 0) return;
     // Fisher-Yates shuffle
     for (let i = flashcards.length - 1; i > 0; i--) {
@@ -516,7 +573,12 @@ function disableButtons() {
     prevBtn.disabled = true;
     nextBtn.disabled = true;
     shuffleBtn.disabled = true;
+    console.log('Buttons disabled due to no flashcards');
 }
 
+
+
 // Initialize
-loadFlashcards();
+console.log('Initializing Space Deck application');
+initializeFlashcards();
+console.log('Application initialized');

@@ -1,6 +1,7 @@
-/* Space-themed styling for Space Deck flip card website */
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap');
 
-/* Global styles */
+/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -8,18 +9,17 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(180deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
     color: #ffffff;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     overflow-x: hidden;
+    position: relative;
 }
 
-/* Starry background effect */
+/* Star Field Background Effect */
 body::before {
     content: '';
     position: fixed;
@@ -28,180 +28,223 @@ body::before {
     width: 100%;
     height: 100%;
     background-image:
-        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
-        radial-gradient(2px 2px at 40px 70px, #fff, transparent),
-        radial-gradient(1px 1px at 90px 40px, #eee, transparent),
-        radial-gradient(1px 1px at 130px 80px, #fff, transparent),
-        radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+        radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+        radial-gradient(2px 2px at 40px 70px, #ffffff, transparent),
+        radial-gradient(1px 1px at 90px 40px, #ffffff, transparent),
+        radial-gradient(1px 1px at 130px 80px, #ffffff, transparent),
+        radial-gradient(2px 2px at 160px 30px, #ffffff, transparent);
     background-repeat: repeat;
     background-size: 200px 100px;
-    z-index: -1;
     animation: twinkle 4s ease-in-out infinite alternate;
+    z-index: -1;
 }
 
 @keyframes twinkle {
-    0% { opacity: 0.3; }
+    0% { opacity: 0.5; }
     100% { opacity: 1; }
 }
 
 /* Header */
 header {
-    margin-bottom: 2rem;
     text-align: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(45deg, #16213e, #0f3460);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-h1 {
+header h1 {
+    font-family: 'Orbitron', monospace;
     font-size: 3rem;
-    color: #00d4ff;
-    text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff;
-    animation: glow 2s ease-in-out infinite alternate;
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    margin-bottom: 0.5rem;
 }
 
-@keyframes glow {
-    from { text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff; }
-    to { text-shadow: 0 0 20px #00d4ff, 0 0 30px #00d4ff, 0 0 40px #00d4ff; }
+header p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    opacity: 0.9;
 }
 
-/* Main content */
+/* Main Content */
 main {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
     width: 100%;
-    max-width: 600px;
-    padding: 0 1rem;
 }
 
-/* Flashcard container */
-.flashcard-container {
-    perspective: 1000px;
-    margin-bottom: 2rem;
+/* Card Counter */
+#card-counter {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 /* Flashcard */
-.flashcard {
+#flashcard {
     width: 100%;
     max-width: 400px;
-    min-height: 250px;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.8s ease-in-out;
+    height: 250px;
+    perspective: 1000px;
+    margin-bottom: 2rem;
     cursor: pointer;
 }
 
-.flashcard.flipped {
-    transform: rotateY(180deg);
-}
-
-/* Card faces */
-.card-face {
+#flashcard > div {
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
+    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), 0 0 40px rgba(0, 212, 255, 0.2);
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    border: 2px solid #00d4ff;
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     transition: box-shadow 0.3s ease;
-    overflow: auto;
 }
 
-.card-face:hover {
-    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5), 0 0 60px rgba(0, 212, 255, 0.3);
+#flashcard > div:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
-.front {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+#front {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    transform: rotateY(0deg);
 }
 
-.back {
+#back {
+    background: linear-gradient(135deg, #667eea, #764ba2);
     transform: rotateY(180deg);
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
 
-.card-face p {
-    font-size: 1.5rem;
+#flashcard.flipped #front {
+    transform: rotateY(180deg);
+}
+
+#flashcard.flipped #back {
+    transform: rotateY(360deg);
+}
+
+#frontText, #backText {
     text-align: center;
-    padding: 1rem;
-    color: #ffffff;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    font-size: 1.2rem;
     line-height: 1.6;
-    word-wrap: break-word;
-    hyphens: auto;
 }
 
-/* Navigation buttons */
-.navigation {
+/* Controls */
+.controls {
     display: flex;
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-button {
+.controls button {
     padding: 0.75rem 1.5rem;
+    font-family: 'Orbitron', monospace;
     font-size: 1rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-weight: 500;
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
     color: #ffffff;
     border: none;
     border-radius: 25px;
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(102, 126, 234, 0.3), 0 0 20px rgba(102, 126, 234, 0.2);
     transition: all 0.3s ease;
-    text-transform: uppercase;
-    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
 }
 
-button:hover {
-    box-shadow: 0 0 20px rgba(102, 126, 234, 0.5), 0 0 40px rgba(102, 126, 234, 0.3);
+.controls button:hover {
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
 }
 
-button:active {
+.controls button:active {
     transform: translateY(0);
 }
 
-/* Responsive design */
+.controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsive Breakpoints */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
+    header h1 {
+        font-size: 2.5rem;
     }
 
-    .flashcard {
-        min-height: 200px;
+    header p {
+        font-size: 1rem;
+    }
+
+    #card-counter {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    #flashcard {
         max-width: 300px;
+        height: 200px;
     }
 
-    .card-face p {
-        font-size: 1.2rem;
+    #frontText, #backText {
+        font-size: 1rem;
     }
 
-    .navigation {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    button {
-        width: 100%;
-        max-width: 200px;
+    .controls button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
-    .flashcard {
-        min-height: 180px;
+    header {
+        padding: 1.5rem 1rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    #card-counter {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    #flashcard {
         max-width: 250px;
+        height: 180px;
     }
 
-    .card-face p {
-        font-size: 1rem;
+    .controls {
+        gap: 0.5rem;
     }
 
-    h1 {
-        font-size: 1.5rem;
+    .controls button {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
     }
 }

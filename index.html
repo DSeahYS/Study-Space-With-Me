@@ -3,30 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Deck</title>
+    <title>Space Deck - Flashcard Study Tool</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 </head>
 <body>
     <header>
         <h1>Space Deck</h1>
+        <p>Master space knowledge with interactive flashcards</p>
     </header>
+
     <main>
-        <div class="flashcard-container">
-            <div class="flashcard" id="flashcard">
-                <div class="card-face front" id="front">
-                    <p id="front-text">Front of card</p>
-                </div>
-                <div class="card-face back" id="back">
-                    <p id="back-text">Back of card</p>
-                </div>
+        <div id="card-counter"></div>
+        <div id="flashcard">
+            <div id="front">
+                <div id="frontText"></div>
+            </div>
+            <div id="back">
+                <div id="backText"></div>
             </div>
         </div>
-        <div class="navigation">
+
+        <div class="controls">
             <button id="prev-btn">Previous</button>
-            <button id="shuffle-btn">Shuffle</button>
             <button id="next-btn">Next</button>
+            <button id="shuffle-btn">Shuffle</button>
         </div>
     </main>
+
+    <footer>
+        <p>&copy; 2023 Space Deck. Study the cosmos one card at a time.</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
