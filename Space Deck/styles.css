@@ -129,14 +129,6 @@ main {
     transform: rotateY(180deg);
 }
 
-#flashcard.flipped #front {
-    transform: rotateY(180deg);
-}
-
-#flashcard.flipped #back {
-    transform: rotateY(360deg);
-}
-
 #frontText, #backText {
     text-align: center;
     font-size: 1.2rem;
