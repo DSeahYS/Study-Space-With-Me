@@ -97,6 +97,8 @@ main {
     perspective: 1000px;
     margin-bottom: 2rem;
     cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
 }
 
 #flashcard > div {
