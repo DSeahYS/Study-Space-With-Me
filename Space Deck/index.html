@@ -14,8 +14,14 @@
     </header>
 
     <main>
-        <div id="card-counter"></div>
+        <div class="counter-container">
+            <div id="card-counter"></div>
+            <div id="starred-counter">★ 0 starred</div>
+        </div>
         <div id="flashcard">
+            <button id="star-btn" class="star-button" aria-label="Star this card">
+                <span class="star-icon">☆</span>
+            </button>
             <div id="front">
                 <div id="frontText"></div>
             </div>
@@ -28,6 +34,7 @@
             <button id="prev-btn">Previous</button>
             <button id="next-btn">Next</button>
             <button id="shuffle-btn">Shuffle</button>
+            <button id="view-starred-btn">View Starred</button>
         </div>
     </main>
 

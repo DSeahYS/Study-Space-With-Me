@@ -11,9 +11,12 @@ The application features a collection of over 100 space-themed flashcards coveri
 ## Features
 
 - **Interactive Flashcards**: Click any card to flip it and reveal the answer with smooth 3D rotation animation
+- **Star Important Cards**: Mark cards as important with a star icon for quick access later
+- **Starred Cards View**: Filter to view only your starred cards for focused review
+- **Persistent Storage**: Your starred cards are saved in browser storage and persist across sessions
 - **Navigation Controls**: Previous/Next buttons to browse through the deck sequentially
 - **Shuffle Functionality**: Randomize the order of flashcards for varied study sessions
-- **Card Counter**: Track your progress with a live counter showing current card position
+- **Card Counter**: Track your progress with a live counter showing current card position and starred count
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
 - **Space Theme**: Immersive cosmic design with animated starfield background and futuristic fonts
 - **Smooth Animations**: Powered by AnimeJS for professional-grade transitions
@@ -23,9 +26,15 @@ The application features a collection of over 100 space-themed flashcards coveri
 1. **Getting Started**: Open `index.html` in your web browser (double-click the file or use a local server)
 2. **Viewing Cards**: The front of each card displays a question or prompt
 3. **Flipping Cards**: Click anywhere on the card to flip it and reveal the answer on the back
-4. **Navigation**: Use the Previous/Next buttons to move through the deck sequentially
-5. **Shuffling**: Click the Shuffle button to randomize the card order for varied study sessions
-6. **Progress Tracking**: Monitor your position with the card counter at the top
+4. **Starring Cards**: Click the star icon (☆) in the top-right corner of any card to mark it as important
+   - The star will turn gold (★) when the card is starred
+   - Starred cards are automatically saved to your browser's local storage
+5. **Viewing Starred Cards**: Click the "View Starred" button to see only your starred cards
+   - Click "View All" to return to viewing all cards
+   - The starred count is always visible at the top of the page
+6. **Navigation**: Use the Previous/Next buttons to move through the deck sequentially
+7. **Shuffling**: Click the Shuffle button to randomize the card order for varied study sessions
+8. **Progress Tracking**: Monitor your position with the card counter at the top
 
 ## Technical Details
 
@@ -116,14 +125,24 @@ Contributions are welcome! To contribute:
 
 ### Adding New Flashcards
 
-To add new flashcards, edit the `flashcards.json` file. Each flashcard should follow this format:
+To add new flashcards, edit the flashcard array in `script.js` (starting at line 6). Each flashcard should follow this format:
 
-```json
+```javascript
 {
   "front": "Your question here?",
   "back": "Your answer here."
 }
 ```
+
+Note: Flashcard data is embedded directly in the JavaScript file to avoid CORS issues when opening the HTML file directly in a browser.
+
+### Star Feature Data Storage
+
+The star feature uses browser localStorage to persist starred cards across sessions:
+- **Storage Key**: `spaceDeckStarred`
+- **Data Format**: JSON array of card indices
+- **Persistence**: Data remains until browser cache is cleared
+- **Privacy**: All data is stored locally in your browser; no external servers are involved
 
 ## License
 
