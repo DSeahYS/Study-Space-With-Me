@@ -155,6 +155,10 @@ main {
     text-align: center;
     font-size: 1.2rem;
     line-height: 1.6;
+    width: 100%;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Star Button */
